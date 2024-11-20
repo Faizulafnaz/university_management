@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Sign Up Form by Colorlib</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=workspaces" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Font Icon -->
+    <link
+      rel="stylesheet"
+      href="/static/fonts/material-icon/css/material-design-iconic-font.min.css"
+    />
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="/static/css/style copy.css" />
+  </head>
+  <body>
+    <div class="main">
+      <!-- Sign up form -->
+      <section class="signup">
+        <div class="container">
+          <div class="signup-content">
+            <form method="POST" class="register-form" id="register-form" style="display:flex" action="{% url 'signup' %}"  enctype="multipart/form-data">
+            
+              <div class="signup-form">
+              <h2 class="form-title">Sign up</h2>
+              {% csrf_token %}
+              {% if messages%}
+                {% for message in messages%}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                  <strong></strong>{{message}}
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {%endfor%}
+              {%endif%}
+                <div class="form-group">
+                  <label for="name"
+                    ><i class="zmdi zmdi-account material-icons-name"></i
+                  ></label>
+                  <input
+                    type="text"
+                    name="username"
+                    id="username"
+                    placeholder="Username"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="email"><i class="zmdi zmdi-email"></i></label>
+                  <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Email"
+                  required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="name"
+                    ><i class="zmdi zmdi-account material-icons-name"></i
+                  ></label>
+                  <input
+                    type="text"
+                    name="fullname"
+                    id="fullname"
+                    placeholder="Fullname"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="name"
+                    ><i class="fa-solid fa-phone"></i>
+                  </label>
+                  <input
+                    type="text"
+                    name="phone_number"
+                    id="phone_number"
+                    placeholder="Phone number with contry code e.g. +91 9999999999"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="pass"><i class="zmdi zmdi-lock"></i></label>
+                  <input
+                    type="password"
+                    name="pass"
+                    id="pass"
+                    placeholder="Password"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="re-pass"
+                    ><i class="zmdi zmdi-lock-outline"></i
+                  ></label>
+                  <input
+                    type="password"
+                    name="re_pass"
+                    id="re_pass"
+                    placeholder="Repeat your password"
+                  />
+                </div>
+                {% comment %}
+                <div class="form-group">
+                  <input
+                    type="checkbox"
+                    name="agree-term"
+                    id="agree-term"
+                    class="agree-term"
+                  />
+                  <label for="agree-term" class="label-agree-term"
+                    ><span><span></span></span>I agree all statements in
+                    <a href="#" class="term-service">Terms of service</a></label
+                  >
+                </div>
+                {% endcomment %}
+                <div class="form-group form-button">
+                  <input
+                    type="submit"
+                    name="signup"
+                    id="signup"
+                    class="form-submit"
+                    value="Register"
+                  />
+                </div>
+            </div>
+            <div class="signup-image">
+                
+                {% comment %} <div class="form-group">
+                    <label for="department"><span class="material-symbols-outlined" style="font-size : 16px"> workspaces
+                        </span></label>
+                    
+                    <input
+                      type="text"
+                      name="department"
+                      id="department"
+                      placeholder="Department"
+                      required
+                    />
+                  </div> {% endcomment %}
+                  
+                  
+
+                  <div class="form-group">
+                    <label for="specialization"><i class="fa-solid fa-star"></i></label>
+                    <input
+                      type="text"
+                      name="specialization"
+                      id="specialization"
+                      placeholder="specialization"
+                      required
+                    />
+                  </div><div class="form-group">
+                    <label for="qualification"><i class="fa-solid fa-graduation-cap"></i></label>
+                    <input
+                      type="text"
+                      name="qualification"
+                      id="qualification"
+                      placeholder="qualification"
+                      required
+                    />
+                  </div>
+                  
+                <div class="form-group">
+                    <label for="dob"><i class="fa-solid fa-calendar-days"></i></label>
+                    <input
+                      type="date"
+                      name="dob"
+                      id="dob"
+                      placeholder="Date of birth"
+                      required
+                    />
+                  </div><div class="form-group">
+                    <label for="image">
+ 
+                        <i class="fa-solid fa-image"></i></label>
+                    <input
+                      type="file"
+                      name="image"
+                      id="image"
+                      placeholder="Profile photo"
+                      required
+                    />
+                  </div>
+
+                  <div class="form-group">
+                  
+                    <select name="department" id="department" class="form-select" aria-label="Default select example" style="font-size : small">
+                      
+                      <option selected value="">select department</option>
+                      {% for department in departments %}
+                      <option value={{department.id}}>{{department}}</option>
+                      {% endfor %}
+                    </select>
+                  
+              </div>
+                  
+                  <div class="form-group" style="overflow:visible;">
+                    <select name="gender" id="gender" class="form-select" aria-label="Default select example" style="font-size : small">
+                      
+                      <option selected value="">select gender</option>
+                     
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                      
+                    </select>
+                </div>
+                  
+              {% comment %} <figure>
+                
+                <img src="/static/img/logo-lite.png" alt="sing up image" />
+              </figure> {% endcomment %}
+              <a href="/login" class="signup-image-link">I am already member</a>
+            </div>
+        </form>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- JS -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("register-form");
+        form.addEventListener("submit", function (event) {
+          let isValid = true;
+          let errorMessage = "";
+    
+          // Validate Username
+          const username = document.getElementById("username").value.trim();
+          if (username === "") {
+            isValid = false;
+            errorMessage += "Username is required.\n";
+          }
+    
+          // Validate Email
+          const email = document.getElementById("email").value.trim();
+          const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (!emailPattern.test(email)) {
+            isValid = false;
+            errorMessage += "Please enter a valid email address.\n";
+          }
+    
+          // Validate Fullname
+          const fullname = document.getElementById("fullname").value.trim();
+          if (fullname === "") {
+            isValid = false;
+            errorMessage += "Fullname is required.\n";
+          }
+    
+          // Validate Password
+          const password = document.getElementById("pass").value;
+          if (password.length < 6) {
+            isValid = false;
+            errorMessage += "Password must be at least 6 characters long.\n";
+          }
+    
+          // Validate Repeat Password
+          const repeatPassword = document.getElementById("re_pass").value;
+          if (password !== repeatPassword) {
+            isValid = false;
+            errorMessage += "Passwords do not match.\n";
+          }
+    
+          // Validate Department
+          const department = document.getElementById("department").value.trim();
+          if (department === "") {
+            isValid = false;
+            errorMessage += "Department is required.\n";
+          }
+    
+          // Validate Specialization
+          const specialization = document.getElementById("specialization").value.trim();
+          if (specialization === "") {
+            isValid = false;
+            errorMessage += "Specialization is required.\n";
+          }
+    
+          // Validate Qualification
+          const qualification = document.getElementById("qualification").value.trim();
+          if (qualification === "") {
+            isValid = false;
+            errorMessage += "Qualification is required.\n";
+          }
+    
+          // Validate Date of Birth
+          const dob = document.getElementById("dob").value;
+          if (dob === "") {
+            isValid = false;
+            errorMessage += "Date of birth is required.\n";
+          }
+    
+          // Validate Profile Photo
+          const image = document.getElementById("image").value;
+          if (image === "") {
+            isValid = false;
+            errorMessage += "Profile photo is required.\n";
+          }
+    
+          // Validate Gender (text input)
+          const gender = document.getElementById("gender").value.trim().toLowerCase();
+          const validGenders = ["male", "female", "other"];
+          if (!validGenders.includes(gender)) {
+            isValid = false;
+            errorMessage += "Gender must be 'male', 'female', or 'other'.\n";
+          }
+    
+          // If not valid, prevent form submission and show alert
+          if (!isValid) {
+            event.preventDefault();
+            alert(errorMessage);
+          }
+        });
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+  <!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
