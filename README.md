@@ -1,6 +1,3 @@
-Here's a professional and well-organized **README.md** for your University Management System project:  
-
----
 
 # **University Management System**
 
