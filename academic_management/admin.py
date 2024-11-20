@@ -100,5 +100,14 @@ class AttendanceAdmin(admin.ModelAdmin):
         return f"{obj.attendance_percentage:.2f}%"
     attendance_percentage_display.short_description = "Attendance Percentage"
 
+from .models import Stock
+
+@admin.register(Stock)
+class StockAdmin(admin.ModelAdmin):
+    list_display = ('item_name', 'quantity', 'department', 'date_added')
+    search_fields = ('item_name', 'department__name')
+    list_filter = ('department', 'date_added')
+    ordering = ('-date_added',)
+
 # admin.site.register(Center, CenterAdmin)
 # admin.site.register(Department, DepartmentAdmin)

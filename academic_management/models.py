@@ -113,3 +113,14 @@ class Attendance(models.Model):
         if self.total_classes:
             return (self.classes_attended / self.total_classes) * 100
         return 0.0
+
+
+class Stock(models.Model):
+    item_name = models.CharField(max_length=255)
+    quantity = models.PositiveIntegerField()
+    description = models.TextField(blank=True, null=True)
+    date_added = models.DateTimeField(auto_now_add=True)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE, related_name='stocks')
+
+    def __str__(self):
+        return f"{self.item_name} - {self.department.name} ({self.quantity})"
