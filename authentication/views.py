@@ -99,6 +99,7 @@ def handle_signup(request):
             myuser.first_name = fname
             myuser.last_name = lname
             myuser.role = 'hod'
+            myuser.is_staff = True
             print(myuser.groups)
             myuser.save()
             print(myuser.groups)
