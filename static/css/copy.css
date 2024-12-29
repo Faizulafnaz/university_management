@@ -1,0 +1,157 @@
+/* General Flexbox Setup */
+.display-flex, .display-flex-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .display-flex-center {
+    justify-content: center;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 900px; /* Ensure it doesn't stretch too wide */
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0px 15px 16.83px 0.17px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+  }
+  
+  .main {
+    background-image: url('../img/home-banner-bg.png');
+    padding: 40px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  h2 {
+    font-size: 2.2rem; /* Scale font size */
+  }
+  
+  body {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #222;
+    background: #f8f8f8;
+    font-family: Poppins;
+  }
+  
+  .form-submit {
+    display: inline-block;
+    background: #6dabe4;
+    color: #fff;
+    padding: 15px 39px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .form-submit:hover {
+    background: #4292dc;
+  }
+  
+  .signup-content {
+    padding: 75px 0;
+  }
+  
+  /* Flexbox for forms */
+  .signup-form, .signup-image {
+    width: 50%;
+    padding: 20px;
+  }
+  
+  .signup-image {
+    margin: 0 55px;
+  }
+  
+  /* Input Styles */
+  input {
+    width: 100%;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #999;
+    padding: 6px 30px;
+    box-sizing: border-box;
+  }
+  
+  input:focus {
+    border-bottom: 1px solid #222;
+  }
+  
+  /* Media Queries for Responsive Design */
+  @media screen and (max-width: 1200px) {
+    .container {
+      width: 95%;
+    }
+  
+    h2 {
+      font-size: 2rem;
+    }
+  
+    .signup-form, .signup-image {
+      width: 45%;
+    }
+  
+    .form-submit {
+      width: 100%; /* Make button take full width on smaller screens */
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    /* Stack signup form and image */
+    .signup-form, .signup-image {
+      width: 100%;
+      margin: 0;
+    }
+  
+    .container {
+      padding: 15px;
+    }
+  
+    .main {
+      padding: 20px;
+    }
+  
+    h2 {
+      font-size: 1.5rem;
+    }
+  
+    .form-submit {
+      width: 100%; /* Full-width button */
+    }
+  
+    .signup-content {
+      padding: 40px 0;
+    }
+  
+    .form-title {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    body {
+      font-size: 0.9rem;
+    }
+  
+    .container {
+      width: 100%;
+    }
+  
+    h2 {
+      font-size: 1.3rem;
+    }
+  
+    .form-submit {
+      padding: 12px 20px;
+    }
+  
+    .signup-content {
+      padding: 20px;
+    }
+  }
+  
+  

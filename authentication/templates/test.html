@@ -17,7 +17,6 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="/static/css/style copy.css" />
-    {% comment %} <link rel="stylesheet" href="/static/css/copy.css" /> {% endcomment %}
   </head>
   <body>
     <div class="main">
@@ -25,7 +24,7 @@
       <section class="signup">
         <div class="container">
           <div class="signup-content">
-            <form method="POST" class="register-form" id="register-form"  action="{% url 'signup' %}"  enctype="multipart/form-data">
+            <form method="POST" class="register-form" id="register-form" style="display:flex" action="{% url 'signup' %}"  enctype="multipart/form-data">
             
               <div class="signup-form">
               <h2 class="form-title">Sign up</h2>
@@ -107,18 +106,47 @@
                     value="{{ form_data.re_pass|default:'' }}"
                   />
                 </div>
-            
-            <div class="form-group form-button hide">
-              <input
-              type="submit"
-              name="signup"
-              id="signup"
-              class="form-submit"
-              value="Register"
-              />
-            </div>
+                {% comment %}
+                <div class="form-group">
+                  <input
+                    type="checkbox"
+                    name="agree-term"
+                    id="agree-term"
+                    class="agree-term"
+                  />
+                  <label for="agree-term" class="label-agree-term"
+                    ><span><span></span></span>I agree all statements in
+                    <a href="#" class="term-service">Terms of service</a></label
+                  >
+                </div>
+                {% endcomment %}
+                <div class="form-group form-button">
+                  <input
+                    type="submit"
+                    name="signup"
+                    id="signup"
+                    class="form-submit"
+                    value="Register"
+                  />
+                </div>
             </div>
             <div class="signup-image">
+                
+                {% comment %} <div class="form-group">
+                    <label for="department"><span class="material-symbols-outlined" style="font-size : 16px"> workspaces
+                        </span></label>
+                    
+                    <input
+                      type="text"
+                      name="department"
+                      id="department"
+                      placeholder="Department"
+                      required
+                    />
+                  </div> {% endcomment %}
+                  
+                  
+
                   <div class="form-group">
                     <label for="specialization"><i class="fa-solid fa-star"></i></label>
                     <input
@@ -193,15 +221,6 @@
                 
                 <img src="/static/img/logo-lite.png" alt="sing up image" />
               </figure> {% endcomment %}
-              <div class="form-group form-button element-to-hide">
-                <input
-                type="submit"
-                name="signup"
-                id="signup"
-                class="form-submit"
-                value="Register"
-                />
-              </div>
               <a href="/login" class="signup-image-link">I am already member</a>
             </div>
         </form>
@@ -215,118 +234,106 @@
       document.addEventListener("DOMContentLoaded", function () {
         const form = document.getElementById("register-form");
         form.addEventListener("submit", function (event) {
-            let isValid = true;
-            let errorMessage = "";
+          let isValid = true;
+          let errorMessage = "";
     
-            // Validate Username
-            const username = document.getElementById("username").value.trim();
-            if (username === "") {
-                isValid = false;
-                errorMessage += "Username is required.\n";
-            }
+          // Validate Username
+          const username = document.getElementById("username").value.trim();
+          if (username === "") {
+            isValid = false;
+            errorMessage += "Username is required.\n";
+          }
     
-            // Validate Email
-            const email = document.getElementById("email").value.trim();
-            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-            if (!emailPattern.test(email)) {
-                isValid = false;
-                errorMessage += "Please enter a valid email address.\n";
-            }
+          // Validate Email
+          const email = document.getElementById("email").value.trim();
+          const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+          if (!emailPattern.test(email)) {
+            isValid = false;
+            errorMessage += "Please enter a valid email address.\n";
+          }
     
-            // Validate Fullname
-            const fullname = document.getElementById("fullname").value.trim();
-            if (fullname === "") {
-                isValid = false;
-                errorMessage += "Fullname is required.\n";
-            }
+          // Validate Fullname
+          const fullname = document.getElementById("fullname").value.trim();
+          if (fullname === "") {
+            isValid = false;
+            errorMessage += "Fullname is required.\n";
+          }
     
-            // Validate Password
-            const password = document.getElementById("pass").value;
-            if (password.length < 6) {
-                isValid = false;
-                errorMessage += "Password must be at least 6 characters long.\n";
-            }
+          // Validate Password
+          const password = document.getElementById("pass").value;
+          if (password.length < 6) {
+            isValid = false;
+            errorMessage += "Password must be at least 6 characters long.\n";
+          }
     
-            // Validate Repeat Password
-            const repeatPassword = document.getElementById("re_pass").value;
-            if (password !== repeatPassword) {
-                isValid = false;
-                errorMessage += "Passwords do not match.\n";
-            }
+          // Validate Repeat Password
+          const repeatPassword = document.getElementById("re_pass").value;
+          if (password !== repeatPassword) {
+            isValid = false;
+            errorMessage += "Passwords do not match.\n";
+          }
     
-            // Validate Department
-            const department = document.getElementById("department").value.trim();
-            if (department === "") {
-                isValid = false;
-                errorMessage += "Department is required.\n";
-            }
+          // Validate Department
+          const department = document.getElementById("department").value.trim();
+          if (department === "") {
+            isValid = false;
+            errorMessage += "Department is required.\n";
+          }
     
-            // Validate Specialization
-            const specialization = document.getElementById("specialization").value.trim();
-            if (specialization === "") {
-                isValid = false;
-                errorMessage += "Specialization is required.\n";
-            }
+          // Validate Specialization
+          const specialization = document.getElementById("specialization").value.trim();
+          if (specialization === "") {
+            isValid = false;
+            errorMessage += "Specialization is required.\n";
+          }
     
-            // Validate Qualification
-            const qualification = document.getElementById("qualification").value.trim();
-            if (qualification === "") {
-                isValid = false;
-                errorMessage += "Qualification is required.\n";
-            }
+          // Validate Qualification
+          const qualification = document.getElementById("qualification").value.trim();
+          if (qualification === "") {
+            isValid = false;
+            errorMessage += "Qualification is required.\n";
+          }
     
-            // Validate Date of Birth
-            const dob = document.getElementById("dob").value;
-            if (dob === "") {
-                isValid = false;
-                errorMessage += "Date of birth is required.\n";
-            } else {
-                const dobDate = new Date(dob);
-                const today = new Date();
-                const age = today.getFullYear() - dobDate.getFullYear();
-                const monthDiff = today.getMonth() - dobDate.getMonth();
-                const dayDiff = today.getDate() - dobDate.getDate();
+          // Validate Date of Birth
+          const dob = document.getElementById("dob").value;
+          if (dob === "") {
+            isValid = false;
+            errorMessage += "Date of birth is required.\n";
+          }
     
-                if (
-                    age < 18 ||
-                    (age === 18 && (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)))
-                ) {
-                    isValid = false;
-                    errorMessage += "You must be at least 18 years old.\n";
-                }
-            }
+          // Validate Profile Photo
+          const image = document.getElementById("image").value;
+          if (image === "") {
+            isValid = false;
+            errorMessage += "Profile photo is required.\n";
+          }
     
-            // Validate Profile Photo
-            const image = document.getElementById("image").value;
-            if (image === "") {
-                isValid = false;
-                errorMessage += "Profile photo is required.\n";
-            }
+          // Validate Gender (text input)
+          const gender = document.getElementById("gender").value.trim().toLowerCase();
+          const validGenders = ["male", "female", "other"];
+          if (!validGenders.includes(gender)) {
+            isValid = false;
+            errorMessage += "Gender must be 'male', 'female', or 'other'.\n";
+          }
+
+           // Validate Phone Number
+          let phoneNumber = document.getElementById("phone_number").value.trim();
+
+          const phonePattern = /^[0-9]{10}$/;
+          if (!phonePattern.test(phoneNumber)) {
+              isValid = false;
+              errorMessage += "Phone number must be 10 digits.\n";
+          }
+
+
     
-            // Validate Gender
-            const gender = document.getElementById("gender").value.trim().toLowerCase();
-            const validGenders = ["male", "female", "other"];
-            if (!validGenders.includes(gender)) {
-                isValid = false;
-                errorMessage += "Gender must be 'male', 'female', or 'other'.\n";
-            }
-    
-            // Validate Phone Number
-            const phoneNumber = document.getElementById("phone_number").value.trim();
-            const phonePattern = /^[0-9]{10}$/;
-            if (!phonePattern.test(phoneNumber)) {
-                isValid = false;
-                errorMessage += "Phone number must be 10 digits.\n";
-            }
-    
-            // If not valid, prevent form submission and show alert
-            if (!isValid) {
-                event.preventDefault();
-                alert(errorMessage);
-            }
+          // If not valid, prevent form submission and show alert
+          if (!isValid) {
+            event.preventDefault();
+            alert(errorMessage);
+          }
         });
-    });
-    
+      });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="vendor/jquery/jquery.min.js"></script>

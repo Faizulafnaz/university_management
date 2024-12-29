@@ -41,7 +41,7 @@
   <header class="default-header">
     <nav class="navbar navbar-expand-lg  navbar-light">
       <div class="container">
-        <a class="navbar-brand" href="index.html" style="display : contents; margin-top: 9px;">
+        <a class="navbar-brand" href="{% url 'landing_page' %}" style="display : contents; margin-top: 9px;">
           <img src="/static/img/logo-bgr.png" width = '70px' alt="" />
           <p style="padding : 13px; margin-top: 9px; text-transform: uppercase; font-size: 12px; font-weight: 500; color: white;">University of Calicut</P>
         </a>
@@ -108,32 +108,56 @@
 
   <footer class="footer-area section-gap">
     <div class="container">
-        <div class="row" style="justify-content:end;">
-            <div class="col-lg-4 col-md-6 single-footer-widget">
-                <h4>Contact Information</h4>
-                <ul>
-                    <li><strong>SUVEGA:</strong> Suvega@uoc.ac.in, 0494 266 0600</li>
-                    <li><strong>Vice Chancellor:</strong> vcoffice@uoc.ac.in, 0494 240 7102</li>
-                    <li><strong>Registrar:</strong> reg@uoc.ac.in, 0494 240 7104</li>
-                    <li><strong>Pro Vice Chancellor:</strong> pvc@uoc.ac.in, 0494 240 7103</li>
-                    <li><strong>Controller of Examination:</strong> ce@uoc.ac.in, 0494 240 7200</li>
-                    <li><strong>Public Relations:</strong> pro@uoc.ac.in</li>
-                </ul>
-            </div>
+      <div class="row" style="justify-content:end;">
+        <div class="col-lg-4 col-md-6 single-footer-widget">
+          <h4>Contact Information</h4>
+          <ul>
+            <li>
+              <strong>SUVEGA:</strong> 
+              <a href="mailto:Suvega@uoc.ac.in">Suvega@uoc.ac.in</a>, 
+              <a href="tel:+914942660600">0494 266 0600</a>
+            </li>
+            <li>
+              <strong>Vice Chancellor:</strong> 
+              <a href="mailto:vcoffice@uoc.ac.in">vcoffice@uoc.ac.in</a>, 
+              <a href="tel:+914942407102">0494 240 7102</a>
+            </li>
+            <li>
+              <strong>Registrar:</strong> 
+              <a href="mailto:reg@uoc.ac.in">reg@uoc.ac.in</a>, 
+              <a href="tel:+914942407104">0494 240 7104</a>
+            </li>
+            <li>
+              <strong>Pro Vice Chancellor:</strong> 
+              <a href="mailto:pvc@uoc.ac.in">pvc@uoc.ac.in</a>, 
+              <a href="tel:+914942407103">0494 240 7103</a>
+            </li>
+            <li>
+              <strong>Controller of Examination:</strong> 
+              <a href="mailto:ce@uoc.ac.in">ce@uoc.ac.in</a>, 
+              <a href="tel:+914942407200">0494 240 7200</a>
+            </li>
+            <li>
+              <strong>Public Relations:</strong> 
+              <a href="mailto:pro@uoc.ac.in">pro@uoc.ac.in</a>
+            </li>
+          </ul>
         </div>
-        <div class="footer-bottom row align-items-center">
-            <p class="footer-text m-0 col-lg-8 col-md-12">
-                &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | University of Calicut
-            </p>
-            <div class="col-lg-4 col-md-12 footer-social">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-                <a href="#"><i class="fa fa-linkedin"></i></a>
-            </div>
+      </div>
+      <div class="footer-bottom row align-items-center">
+        <p class="footer-text m-0 col-lg-8 col-md-12">
+          &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | University of Calicut
+        </p>
+        <div class="col-lg-4 col-md-12 footer-social">
+          <a href="#"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="#"><i class="fa fa-linkedin"></i></a>
         </div>
+      </div>
     </div>
-</footer>
+  </footer>
+  
 
   <!-- ================ End footer Area ================= -->
 
